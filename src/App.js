@@ -47,11 +47,15 @@ function App() {
 
   const renderArtists = () => {
     return artists.map(artist => (
-        <div key={artist.id}>
-            {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
-            <h2>{artist.name}</h2>
-            <p><strong>Gêneros:</strong> {artist.genres.length ? artist.genres.join(", ") : "Gênero não disponível"}</p>
-        </div>
+      <div key={artist.id}>
+        {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
+        <h2>
+          <a href={artist.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+            {artist.name}
+          </a>
+        </h2>
+        <p><strong>Gêneros:</strong> {artist.genres.length ? artist.genres.join(", ") : "Gênero não disponível"}</p>
+      </div>
     ))
   }
 
